@@ -1,6 +1,7 @@
 package cn.lancoo.bo;
 
 import oracle.jrockit.jfr.events.RequestableEventEnvironment;
+import org.junit.Test;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +21,7 @@ public class CheckServlet extends HttpServlet {
 
         doGet(request,response);
     }
-
+@Test
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
@@ -46,7 +47,6 @@ public class CheckServlet extends HttpServlet {
             session.setAttribute("checks",checks);
             //response.setCharacterEncoding("UTF-8");
             response.setContentType("text/html;charset=utf-8");
-
 
             //response.sendRedirect("http://localhost:8080/resultdisplay/question.jsp");
             request.getRequestDispatcher("/question.jsp").forward(request,response);
